@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>TURBO PLAY</title>
+
+<style>
+
+body{
+margin:0;
+background:#381856;
+color:white;
+font-family:Arial;
+display:flex;
+flex-direction:column;
+align-items:center;
+min-height:100vh;
+}
+
+header{
+background:#2c1b59;
+width:100%;
+text-align:center;
+padding:20px;
+}
+
+header h1{
+color:cyan;
+font-size:48px;
+margin:0;
+}
+
+#buscador{
+margin:20px;
+width:300px;
+}
+
+#buscador input{
+width:100%;
+padding:10px;
+border-radius:8px;
+border:2px solid cyan;
+background:#1a1a2e;
+color:white;
+font-size:16px;
+}
+
+#categorias{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+margin-bottom:20px;
+}
+
+.categoria-link{
+background:#2c1b59;
+color:cyan;
+padding:10px 20px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.categoria-link:hover{
+background:cyan;
+color:#2c1b59;
+}
+
+#resultados{
+margin-top:20px;
+width:300px;
+}
+
+#resultados a{
+color:white;
+text-decoration:none;
+display:block;
+padding:5px;
+}
+
+#resultados a:hover{
+color:cyan;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Menu</h1>
+</header>
+
+<div id="buscador">
+<input type="text" id="buscar" placeholder="🔎 Buscar juego..." onkeyup="buscarJuego()">
+</div>
+
+<div id="resultados"></div>
+
+<div id="categorias">
+<a class="categoria-link" href="centro.html" target="centro">Inicio</a></h2>
+<a class="categoria-link" href="1erlink.html" target="centro">Carreras</a>
+<a class="categoria-link" href="2do_link.html" target="centro">Acción</a>
+<a class="categoria-link" href="3er_link.html" target="centro">Estrategia</a>
+<a class="categoria-link" href="4to_link.html" target="centro">Juegos de Rol</a>
+<a class="categoria-link" href="5to_link.html" target="centro">Casuales</a>
+</div>
+
+<script>
+
+const juegos = [
+
+{nombre:"Forza Horizon 5",url:"forza.html"},
+{nombre:"Need for Speed Unbound",url:"nfs.html"},
+{nombre:"Gran Turismo 7",url:"gt7.html"},
+{nombre:"F1 24",url:"f1.html"},
+{nombre:"The Crew Motorfest",url:"crew.html"},
+{nombre:"Dirt 5",url:"dirt.html"},
+{nombre:"Asphalt 9",url:"asphalt.html"},
+{nombre:"Grid Legends",url:"grid.html"},
+{nombre:"Project Cars 3",url:"project.html"},
+
+{nombre:"Red Dead Redemption 2",url:"rdr2.html"},
+{nombre:"GTA V",url:"gta.html"},
+{nombre:"Call of Duty Modern Warfare II",url:"cod.html"},
+{nombre:"God of War Ragnarok",url:"gow.html"},
+{nombre:"Assassin's Creed Valhalla",url:"ac.html"},
+{nombre:"Resident Evil 4",url:"re4.html"},
+{nombre:"Spider-Man 2",url:"spiderman.html"},
+{nombre:"Far Cry 6",url:"farcry.html"},
+{nombre:"DOOM Eternal",url:"doom.html"},
+
+{nombre:"Age of Empires IV",url:"aoe4.html"},
+{nombre:"Civilization VI",url:"civ6.html"},
+{nombre:"StarCraft II",url:"starcraft.html"},
+{nombre:"Total War Warhammer III",url:"warhammer.html"},
+{nombre:"XCOM 2",url:"xcom.html"},
+{nombre:"Clash of Clans",url:"clash.html"},
+{nombre:"Hearts of Iron IV",url:"hoi4.html"},
+{nombre:"Anno 1800",url:"anno.html"},
+{nombre:"Company of Heroes 3",url:"coh3.html"},
+
+{nombre:"Elden Ring",url:"eldenring.html"},
+{nombre:"Cyberpunk",url:"cyberpunk.html"},
+{nombre:"Dark Souls III",url:"darksouls.html"},
+{nombre:"Final Fantasy XIV",url:"ffxiv.html"},
+{nombre:"Devil May Cry 5",url:"dmc5.html"},
+{nombre:"Bendy And The Ink Machine",url:"bendy.html"},
+{nombre:"Undertale",url:"undertale.html"},
+{nombre:"Five Nights at Freddy's Sister Location",url:"fnaf.html"},
+{nombre:"Cuphead",url:"cuphead.html"},
+
+{nombre:"Plantas vs Zombies",url:"pvz.html"},
+{nombre:"Roblox",url:"roblox.html"},
+{nombre:"Genshin Impact",url:"genshin.html"},
+{nombre:"Rocket League",url:"rocketleague.html"},
+{nombre:"Geometry Dash",url:"geometrydash.html"},
+{nombre:"Among Us",url:"amongus.html"},
+{nombre:"Dave The Driver",url:"dave.html"},
+{nombre:"Slime Rancher",url:"slime.html"},
+{nombre:"Plantas vs Zombies 2",url:"pvz2.html"}
+
+];
+
+function buscarJuego(){
+
+let input=document.getElementById("buscar").value.toLowerCase();
+let contenedor=document.getElementById("resultados");
+
+contenedor.innerHTML="";
+
+if(input===""){
+return;
+}
+
+let resultados=juegos.filter(j=>j.nombre.toLowerCase().includes(input));
+
+resultados.forEach(j=>{
+contenedor.innerHTML+=`<a href="${j.url}" target="centro">${j.nombre}</a>`;
+});
+
+}
+
+</script>
+
+</body>
+</html>

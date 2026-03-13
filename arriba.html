@@ -1,0 +1,99 @@
+﻿<html>
+<head>
+<title>documento</title>
+<meta charset="UTF-8">
+
+<style>
+
+body{
+margin:0;
+background:#381856;
+color:white;
+}
+
+/* fondo animado */
+#fondo{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+overflow:hidden;
+}
+
+/* emojis */
+.emoji{
+position:absolute;
+top:-50px;
+font-size:30px;
+animation: caer linear forwards;
+}
+
+@keyframes caer{
+0%{
+transform: translateY(-50px);
+opacity:1;
+}
+100%{
+transform: translateY(110vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="fondo"></div>
+
+<table width="100%">
+<tr>
+
+<td width="200">
+<img src="logo_catalogo.jpg" width="250" height="180">
+</td>
+
+<td align="center">
+<h1><font size="7" color="cyan">TURBO PLAY</font></h1>
+</td>
+
+<td width="200">
+<img src="logo_catalogo.jpg" width="250" height="180">
+</td>
+
+</tr>
+</table>
+
+<script>
+
+const fondo = document.getElementById("fondo");
+
+const emojis = ["👾","🎮","🕹️","🟡"];
+
+function crearEmoji(){
+
+const emoji = document.createElement("div");
+
+emoji.className="emoji";
+
+emoji.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+
+emoji.style.left = Math.random()*100 + "vw";
+emoji.style.animationDuration = (3 + Math.random()*5) + "s";
+
+fondo.appendChild(emoji);
+
+setTimeout(()=>{
+emoji.remove();
+},8000);
+
+}
+
+setInterval(crearEmoji,400);
+
+</script>
+
+</body>
+</html>
